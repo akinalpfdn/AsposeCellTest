@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA8A3567-6881-4BF4-BD60-F1C6D21115C0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AsposeCellTest</RootNamespace>
+    <AssemblyName>AsposeCellTest</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlfAuthHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\AlfAuthHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFeBAHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFeBAHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="AlfExcelHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\AlfExcelHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="AlfExcelHelperold">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\AlfExcelHelperold.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFInfoLogHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFInfoLogHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFLogHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFLogHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFOcrHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFOcrHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFRuleHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFRuleHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ALFUpdateHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ALFUpdateHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="AlfValidationHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\AlfValidationHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="AlfZipHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\AlfZipHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="eba.net">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eba.net.dll</HintPath>
+    </Reference>
+    <Reference Include="eBABaseFlow">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBABaseFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="eBAControls">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBAControls.dll</HintPath>
+    </Reference>
+    <Reference Include="eBADB">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBADB.dll</HintPath>
+    </Reference>
+    <Reference Include="eBADocumentBuilder">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBADocumentBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="eBAFormData">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBAFormData.dll</HintPath>
+    </Reference>
+    <Reference Include="eBAIntegrationAPI">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBAIntegrationAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="ebanet">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\ebanet.dll</HintPath>
+    </Reference>
+    <Reference Include="eBAPI">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="eBASystemAPI">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBASystemAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="eBAZipLibrary">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\eBAZipLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Pon006BordroHelper">
+      <HintPath>..\..\..\..\..\..\VsReferances\Yeni klasör\Pon006BordroHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
