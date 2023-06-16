@@ -67,7 +67,8 @@ namespace AsposeCellTest
 		{
 
 			TextBox textbox = new TextBox();
-			textbox.Text = @"10001004 10001010 10001012 10001015 10001017 10001018 10001020 10001021 10001022 10001023 10001026 10001029 10001031 10001032 10001035 10001036 10001037 10001038 10001041 10001044 10001045 10001046 10001051 10001052 10001053 10001055 10001059 10001062 10001065 10001066 10001069 10001070 10001074 10001018 11";
+			//textbox.Text = @"10001004 10001010 10001012 10001015 10001017 10001018 10001020 10001021 10001022 10001023 10001026 10001029 10001031 10001032 10001035 10001036 10001037 10001038 10001041 10001044 10001045 10001046 10001051 10001052 10001053 10001055 10001059 10001062 10001065 10001066 10001069 10001070 10001074 10001018 11";
+			textbox.Text = "10001018";
 			CreateDocument(textbox, Aspose.Cells.SaveFormat.Xlsx);
 		}
 
@@ -106,13 +107,30 @@ namespace AsposeCellTest
 
 			foreach (var materialCode in existsMaterialInfos)
 			{
-				Workbook wb = new Workbook(@"C:\Users\akina\Downloads\asposeDeneme.xlsx");
+				string imgPath = @"C:\Users\akina\Downloads\Picture1.jpg";
+
+				byte[] imgBytes = File.ReadAllBytes(imgPath);
+
+				MemoryStream ms = new MemoryStream();
+				ms.Write(imgBytes, 0, imgBytes.Length);
+
+
+				Workbook wb = new Workbook();
+
+				//Worksheet worksheet = workbook.Worksheets[0];
+
+
+				//Workbook wb = new Workbook(@"C:\Users\akina\Downloads\asposeDeneme.xlsx");
 				int sheetNumber = 0;
 				Worksheet ws = wb.Worksheets[sheetNumber];
+				CreateTemplate(ws);
+				ws.Pictures.Add(1, 1, ms);
 				//ws.Cells.Merge(6, 1, 2, 2);
 				int rowCount = CreateExcel(ws,materialCode.materialId);
 				AutoFitterOptions options = new AutoFitterOptions();
-
+				ws.PageSetup.FitToPagesWide = 1;
+				//ws.PageSetup. = 100;
+								//ws.PageSetup.FitToPagesTall = 0;
 				options.AutoFitMergedCells = true;
 
 				int pageCount = (int)Math.Ceiling(rowCount / 84.0);
@@ -133,6 +151,85 @@ namespace AsposeCellTest
 			}
 			MakeZip(byteArrays, "HammaddeSpektleri-"+DateTime.Now.ToString("dd-MM-yyyy"), existsMaterialInfos, saveFormat);
 
+		}
+		public static void CreateTemplate(Worksheet ws)
+		{
+			ws.Cells.SetColumnWidth(0, 9);
+			ws.Cells.SetColumnWidth(1, 9);
+			ws.Cells.SetColumnWidth(2, 9);
+			ws.Cells.SetColumnWidth(3, 9);
+			ws.Cells.SetColumnWidth(4, 9);
+			ws.Cells.SetColumnWidth(5, 7);
+			ws.Cells.SetColumnWidth(6, 7.57);
+			ws.Cells.SetColumnWidth(7, 12.57);
+			ws.Cells.SetColumnWidth(8, 9);
+			ws.Cells.SetColumnWidth(9, 9);
+			ws.Cells.SetColumnWidth(10, 9);
+			ws.Cells.SetColumnWidth(11, 9);
+			ws.Cells.SetColumnWidth(12, 9);
+			ws.Cells.SetColumnWidth(13, 9);
+			ws.Cells.SetColumnWidth(14, 9);
+			ws.Cells.SetColumnWidth(16, 9);
+			ws.Cells.SetColumnWidth(16, 9);
+			ws.Cells.SetColumnWidth(17, 9);
+			ws.Cells.Merge(0, 0, 5, 3);
+			GiveBorder(ws.Cells[0, 0].GetMergedRange());
+
+
+			ws.Cells.Merge(0, 3, 5, 11);
+			GiveBorder(ws.Cells[0, 4].GetMergedRange());
+
+			ws.Cells[0,3].PutValue("HAMMADDE SPESİFİKASYONU");
+			MakeBold(ws.Cells[0, 3]);
+			changeAlignment(ws.Cells[0, 3], TextAlignmentType.Center, TextAlignmentType.Center);
+
+			ws.Cells.Merge(0, 14, 1, 2);
+			ws.Cells.Merge(1, 14, 1, 2);
+			ws.Cells.Merge(2, 14, 1, 2);
+			ws.Cells.Merge(3, 14, 1, 2);
+			ws.Cells.Merge(4, 14, 1, 2);
+			GiveBorder(ws.Cells[0, 14].GetMergedRange());
+			GiveBorder(ws.Cells[1, 14].GetMergedRange());
+			GiveBorder(ws.Cells[2, 14].GetMergedRange());
+			GiveBorder(ws.Cells[3, 14].GetMergedRange());
+			GiveBorder(ws.Cells[4, 14].GetMergedRange());
+			changeAlignment(ws.Cells[0, 14], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[1, 14], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[2, 14], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[3, 14], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[4, 14], TextAlignmentType.Center, TextAlignmentType.Center);
+			MakeBold(ws.Cells[0, 14]);
+			MakeBold(ws.Cells[1, 14]);
+			MakeBold(ws.Cells[2, 14]);
+			MakeBold(ws.Cells[3, 14]);
+			MakeBold(ws.Cells[4, 14]);
+			ws.Cells[0, 14].PutValue("Doküman No:");
+			ws.Cells[1, 14].PutValue("Yayın Tarihi:");
+			ws.Cells[2, 14].PutValue("Revizyon Tarihi:");
+			ws.Cells[3, 14].PutValue("Revizyon No:");
+			ws.Cells[4, 14].PutValue("Sayfa Sayısı:");
+
+			ws.Cells.Merge(0, 16, 1, 2);
+			ws.Cells.Merge(1, 16, 1, 2);
+			ws.Cells.Merge(2, 16, 1, 2);
+			ws.Cells.Merge(3, 16, 1, 2);
+			ws.Cells.Merge(4, 16, 1, 2);
+			GiveBorder(ws.Cells[0, 16].GetMergedRange());
+			GiveBorder(ws.Cells[1, 16].GetMergedRange());
+			GiveBorder(ws.Cells[2, 16].GetMergedRange());
+			GiveBorder(ws.Cells[3, 16].GetMergedRange());
+			GiveBorder(ws.Cells[4, 16].GetMergedRange());
+			MakeBold(ws.Cells[0, 16]);
+			MakeBold(ws.Cells[1, 16]);
+			MakeBold(ws.Cells[2, 16]);
+			MakeBold(ws.Cells[3, 16]);
+			MakeBold(ws.Cells[4, 16]);
+
+			changeAlignment(ws.Cells[0, 16], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[1, 16], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[2, 16], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[3, 16], TextAlignmentType.Center, TextAlignmentType.Center);
+			changeAlignment(ws.Cells[4, 16], TextAlignmentType.Center, TextAlignmentType.Center);
 		}
 		public static void MakeZip(List<byte[]> byteArrays, string fileName, List<(string materialId, string material, string documentNo)> materialCodes, Aspose.Cells.SaveFormat saveFormat)
 		{
@@ -530,10 +627,10 @@ namespace AsposeCellTest
 
 		public static eBADBProvider CreateDatabaseProvider()
 		{
-			return new eBADBProvider(ServerType.SqlServer, "System.Data.SqlClient", @"Data Source = *********; " +
+			return new eBADBProvider(ServerType.SqlServer, "System.Data.SqlClient", @"Data Source = 192.168.1.14; " +
 				"Initial Catalog=EBA;" +
-				"User id=*******;" +
-				@"Password=********;");
+				"User id=alfacozum;" +
+				@"Password=Alfa2020*A;");
 		}
 
 
